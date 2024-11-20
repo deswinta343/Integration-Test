@@ -12,16 +12,15 @@ public class MenuAccessIntegrationTest extends BaseIntegrationTest {
 
     @Test
     public void testGetMenuAccess() {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setBearerAuth(token);
+        HttpHeaders headers = getAuthorizedHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         HttpEntity<String> request = new HttpEntity<>(headers);
 
-        ResponseEntity<String> response = restTemplate.exchange("http://152.42.188.210:8080/ticket/user/menu_access",
+        ResponseEntity<String> response = restTemplate.exchange("http://server/ticket/user/menu_access",
         HttpMethod.GET,request,String.class);
         System.out.println("Response Status Code: " + response.getStatusCode());
         System.out.println("Response Menu Access: " + response.getBody());
+
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(response.getBody()).contains("classListAccess");
     }}

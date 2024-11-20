@@ -36,7 +36,7 @@
 
 //         // Mengirimkan permintaan POST ke endpoint register
 //         ResponseEntity<String> response = restTemplate.exchange(
-//                 "http://152.42.188.210:8080/ticket/user/public/register",
+//                 "http://server/ticket/user/public/register",
 //                 HttpMethod.POST,
 //                 request,
 //                 String.class);
